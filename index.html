@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lets Sort These Names pt-2</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="main.js"></script>
+
+</head>
+<body>
+<center>
+<h3 style="margin-top: 20px; margin-bottom: 20px; ">
+	List of the students in my class
+</h3>
+
+<div id="rows">
+<span>1</span>
+<input type="text" placeholder="Name of the Student" id="s1">
+<br>
+
+<span>2</span>
+<input type="text" placeholder="Name of the Student" id="s2">
+<br>
+
+<span>3</span>
+<input type="text" placeholder="Name of the Student" id="s3">
+<br>
+
+<span>4</span>
+<input type="text" placeholder="Name of the Student" id="s4">
+</div>
+
+<button onclick="submit()" id="submit">
+	Submit
+</button>
+<hr>
+<div id="disnm">
+</div>
+
+<hr>
+
+<div id="disnonm">
+</div>
+
+
+<button onclick="sorting()" id="sortb">Sort</button>
+</center>
+<script>
+	var starray=[];
+	var da=[];
+	var nocomm=[];
+	function submit() {
+		for(var i=1;i<=4;i++) {
+			var nm=document.getElementById("s"+i).value;
+			starray.push(nm);
+			console.log(nm);
+			da.push("<h4>name- "+nm+"</h4>");
+			console.log(da);
+		}
+		document.getElementById("disnm").innerHTML=da;
+		document.getElementById("submit").style.display="none";
+		document.getElementById("sortb").style.display="inline-block";
+		nocomm=da.join(" ");
+		document.getElementById("disnonm").innerHTML=nocomm;
+	}
+	function sorting(){
+		var daa=[];
+		starray.sort();
+		for(var i=0;i<starray.length;i++) {
+			daa.push("<h4>name- "+starray[i]+"</h4>");
+			console.log(daa);
+		}
+		daa=daa.join(" ");
+		document.getElementById("disnonm").innerHTML=daa;
+		document.getElementById("disnm").innerHTML=starray;
+	}
+</script>
+</body>
+</html>
